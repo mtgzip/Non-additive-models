@@ -34,6 +34,7 @@ If you want the ordered file to be saved, then give it a name for output_file, o
 Additional Notes:
 This script was developed for processing specific genetic data and requires that the genotypes are in tabular format and both files contain an ID column in this way
 If you have any questions or encounter any problems using the script, please feel free to contact me.
-mateus.g.santos@ufv.br
-I'll be happy if you use and reference it.
+
+  mateus.g.santos@ufv.br
+  I'll be happy if you use and reference it.
 
