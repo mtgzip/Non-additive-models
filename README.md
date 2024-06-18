@@ -17,7 +17,7 @@ Data formatting for use with the BLUPF90 software, forming two columns.
 
 Instructions for use:
 Users can run the script by providing the paths to the geno and data files as command line arguments. They can also choose between different types of genetic matrices to be generated and specify the name of the output file.
-It is not necessary to change the code, just follow the instructions
+It is not necessary to change the code, just follow the instructions.
 
 Dependencies:
 This script requires the pandas and numpy libraries to run correctly. Make sure you have them installed before use.
