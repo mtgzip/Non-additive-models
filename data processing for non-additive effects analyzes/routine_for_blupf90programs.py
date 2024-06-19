@@ -290,7 +290,7 @@ def call_rate(df, call_rate_min_snps, call_rate_min_samples, missing_value):
     return df_limpo
 
 
-def maf(df, min_maf=0.05):
+def maf(df, min_maf):
     # Calcular as frequências alélicas
     df_values = df.values[:, 1:]
     n = df_values.shape[0]
@@ -338,7 +338,7 @@ def monomorphic_snp(df, missing_value=5):
     return df_limpo
 
 
-def hwe_test(df, limiar=0.15):
+def hwe_test(df, limiar):
     # Calcular as frequências alélicas
     df_values = df.values[:, 1:]
     n = df_values.shape[0]
