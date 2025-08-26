@@ -31,12 +31,6 @@ g++ -O3 -funroll-loops main.cpp matrix.cpp -o make_matrix
 
 **Note**: This version is currently sequential. Future releases will include parallel implementations using OpenMP/threads and CUDA for GPU acceleration.
 
-### Optional Optimizations
-For better performance with large matrices:
-```bash
-g++ -O3 -funroll-loops -fopenmp main.cpp matrix.cpp -o make_matrix
-```
-
 ## Usage
 
 ### Basic Usage
