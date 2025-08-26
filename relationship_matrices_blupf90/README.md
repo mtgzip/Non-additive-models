@@ -29,6 +29,8 @@ A high-performance C++ tool for computing genomic relationship matrices and thei
 g++ -O3 -funroll-loops main.cpp matrix.cpp -o make_matrix
 ```
 
+**Note**: This version is currently sequential. Future releases will include parallel implementations using OpenMP/threads and CUDA for GPU acceleration.
+
 ### Optional Optimizations
 For better performance with large matrices:
 ```bash
@@ -137,31 +139,31 @@ For a dataset with N individuals:
 - **RAM needed**: ~8N² bytes (for double precision matrices)
 - **Example**: 10,000 individuals ≈ 800 MB RAM
 
-### Processing Time
-Time complexity varies by operation:
-- **Matrix calculation**: O(N² × M) where M = number of markers
-- **Matrix inversion**: O(N³) for Cholesky, O(N² × iterations) for iterative
+**Current Implementation**: Sequential processing
+**Future Releases**: Will include parallel implementations using:
+- **OpenMP/Threads**: Multi-core CPU parallelization
+- **CUDA**: GPU acceleration for massive datasets
 
 ### Optimization Tips
 1. **Large datasets**: The program automatically uses iterative methods for better performance
 2. **Memory**: Ensure sufficient RAM for your dataset size
-3. **CPU**: Multi-core processors improve performance significantly
+3. **CPU**: Multi-core processors will provide significant improvements in future parallel versions
 
 ## Algorithm Details
 
 ### Additive Matrix (G)
-Based on VanRaden (2008) method:
+Based on VanRaden's (2008) method:
 ```
-G = ZZ'/Σ[2p(1-p)]
+G = ZZ'/2Σ[pq)]
 ```
 Where Z is the centered marker matrix and p is the allele frequency.
 
 ### Dominance Matrix (D)  
-Following Su et al. (2012) approach:
+Following Vitezika et al. (2017) approach:
 ```
-D = WW'/Σ[2p(1-p)]²
+D = WW'/4Σ[p²q²]
 ```
-Where W contains dominance deviations.
+Where W has elements equal -2q², 2pq, -2p² for 0,1,2 genotypes 
 
 ### Matrix Inversion
 - **Cholesky decomposition**: For smaller, well-conditioned matrices
